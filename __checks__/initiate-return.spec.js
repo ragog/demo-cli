@@ -14,10 +14,10 @@ test('initiate return', async ({ page }) => {
 
 	// halt immediately if results do not equal expected number
 	let resultsNumber = (await page.$$('.preview-title')).length;
-	assert.equal(resultsNumber, bookList.length);
+	expect(resultsNumber).toBe(bookList.length);
 
 	// remove every element found from the original array...
-	for (i = 0; i < resultsNumber; i++) {
+	for (let i = 0; i < resultsNumber; i++) {
 		const resultTitle = await page.$eval(`.preview:nth-child(${i + 1}) > .preview-title`, (e) => e.innerText);
 
 		const index = bookList.indexOf(resultTitle);
@@ -25,5 +25,5 @@ test('initiate return', async ({ page }) => {
 	}
 
 	// ...then assert that the original array is now empty
-	assert.equal(bookList.length, 0);
+	expect(bookList.length).toBe(0);
 });
