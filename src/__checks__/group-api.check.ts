@@ -33,7 +33,7 @@ new ApiCheck('check-group-api-check-1', {
     url: 'https://jsonmap.site/api/v1/items/dodge-charger',
     headers: [{
       key: 'Authorization',
-      value: 'Bearer c57cb6fd-0bed-47a8-8675-05d63270f2f8'
+      value: `Bearer ${process.env.JSONMAP_API_KEY}`
     }],
     followRedirects: true,
     assertions: []
@@ -50,7 +50,7 @@ new ApiCheck('check-group-api-check-2', {
     url: 'https://jsonmap.site/api/v1/items/dodge-charger',
     headers: [{
       key: 'Authorization',
-      value: 'Bearer c57cb6fd-0bed-47a8-8675-05d63270f2f8'
+      value: `Bearer ${process.env.JSONMAP_API_KEY}`
     }],
     followRedirects: true,
     assertions: []
@@ -67,7 +67,7 @@ new ApiCheck('check-group-api-check-3', {
     url: 'https://jsonmap.site/api/v1/items/dodge-charger',
     headers: [{
       key: 'Authorization',
-      value: 'Bearer c57cb6fd-0bed-47a8-8675-05d63270f2f8'
+      value: `Bearer ${process.env.JSONMAP_API_KEY}`
     }],
     followRedirects: true,
     assertions: []
