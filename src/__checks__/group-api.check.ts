@@ -1,4 +1,4 @@
-import { CheckGroup, ApiCheck } from '@checkly/cli/constructs'
+import { CheckGroup, ApiCheck } from 'checkly/constructs'
 import { smsChannel, emailChannel } from '../alert-channels'
 const alertChannels = [smsChannel, emailChannel]
 /*

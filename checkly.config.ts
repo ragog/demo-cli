@@ -1,8 +1,8 @@
-import { defineConfig } from '@checkly/cli'
+import { defineConfig } from 'checkly'
 
 const config = defineConfig({
-  projectName: 'Advanced Example Project',
-  logicalId: 'advanced-example-project',
+  projectName: 'JSONMap',
+  logicalId: 'demo-jsonmap',
   repoUrl: 'https://github.com/checkly/checkly-cli',
   checks: {
     locations: ['us-east-1', 'eu-west-1'],
