@@ -1,37 +1,30 @@
 import { test, expect } from '@playwright/test';
 
 test('checkout', async ({ page }) => {
-	const navigationPromise = page.waitForNavigation();
 
 	// navigate to our target web page
-	await page.goto('https://danube-webshop.herokuapp.com/');
+	await page.goto('https://danube-web.shop/');
 
 	// add the first item to the cart
-	await page.click(`.preview:nth-child(1) > .preview-author`);
-	await page.click('.detail-wrapper > .call-to-action');
-	await page.click('#logo');
-
-	// wait until navigation is complete
-	await navigationPromise;
+	await page.getByText('Haben oder haben Fric Eromm ★★★★☆ $9.95').click();
+	await page.getByRole('button', { name: 'Add to cart' }).click();
 
 	// navigate to cart and proceed
-	await page.click('#cart');
-	await page.click('.cart > .call-to-action');
-	await page.click('#s-name');
+	await page.getByRole('button', { name: 'Checkout' }).click();
 
 	// fill out checkout info
-	await page.type('#s-name', 'Max');
-	await page.type('#s-surname', 'Mustermann');
-	await page.type('#s-address', 'Charlottenstr. 57');
-	await page.type('#s-zipcode', '10117');
-	await page.type('#s-city', 'Berlin');
-	await page.type('#s-company', 'Firma GmbH');
-	await page.click('.checkout > form');
-	await page.click('#asap');
+	await page.getByPlaceholder('Name', { exact: true }).fill('Max');
+	await page.getByPlaceholder('Surname').fill('Mustermann');
+	await page.getByPlaceholder('Address').fill('Charlottenstr. 57');
+	await page.getByPlaceholder('Zipcode').fill('10117');
+	await page.getByPlaceholder('City').fill('Berlin');
+	await page.getByPlaceholder('Company (optional)').fill('Firma GmbH');
+	await page.getByLabel('as soon as possible').check();
 
 	// confirm checkout
-	await page.click('.checkout > .call-to-action');
+	await page.getByRole('button', { name: 'Buy' }).click();
 
 	// wait until the order confirmation message is shown
-	await page.waitForSelector('#order-confirmation', { visible: true });
+	await expect(page.getByText('All good, order is on the way. Thank you!!')).toBeVisible();
+
 });

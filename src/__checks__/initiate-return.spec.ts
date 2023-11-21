@@ -4,13 +4,13 @@ test('initiate return', async ({ page }) => {
 	const bookList = ['The Foreigner', 'The Transformation', 'For Whom the Ball Tells', 'Baiting for Robot'];
 
 	// navigate to our target web page
-	await page.goto('https://danube-webshop.herokuapp.com/');
+	await page.goto('https://danube-web.shop/');
 
 	// search for keyword
-	await page.click('.topbar > input');
-	await page.type('.topbar > input', 'for');
-	await page.click('#button-search');
-	await page.waitForSelector('.shop-content > ul > .preview:nth-child(1) > .preview-title');
+	await page.getByRole('textbox').fill('for');
+  	await page.getByRole('button', { name: 'Search' }).click();
+
+	await page.waitForLoadState('networkidle')
 
 	// halt immediately if results do not equal expected number
 	let resultsNumber = (await page.$$('.preview-title')).length;
