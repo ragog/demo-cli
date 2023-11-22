@@ -7,7 +7,7 @@ const config = defineConfig({
   checks: {
     locations: ['us-east-1', 'eu-west-1'],
     tags: ['mac'],
-    runtimeId: '2023.02',
+    runtimeId: '2023.09',
     checkMatch: '**/*.check.ts',
     browserChecks: {
       testMatch: '**/__checks__/*.spec.ts',

@@ -16,7 +16,7 @@ const group = new CheckGroup('group-store-api-flows', {
   name: 'Store API v1 - Flows',
   activated: true,
   muted: false,
-  runtimeId: '2022.10',
+  runtimeId: '2023.09',
   locations: ['us-east-1', 'eu-west-1'],
   tags: ['mac', 'production'],
   environmentVariables: [],

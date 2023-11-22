@@ -6,7 +6,7 @@ const group = new CheckGroup('group-store-browser', {
   name: 'WebShop - Production',
   activated: true,
   muted: false,
-  runtimeId: '2022.10',
+  runtimeId: '2023.09',
   locations: ['us-east-1', 'eu-west-1'],
   tags: ['mac', 'production'],
   environmentVariables: [],
