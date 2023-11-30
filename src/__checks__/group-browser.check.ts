@@ -14,6 +14,6 @@ const group = new CheckGroup('group-store-browser', {
   concurrency: 100,
   alertChannels,
   browserChecks: {
-    testMatch: '*.spec.ts'
+    testMatch: 'specs_browser/*.spec.ts'
   }
 })

@@ -1,8 +1,8 @@
 import { test, expect } from '@playwright/test';
 
-test('checkout', async ({ page }) => {
-	test.use({ actionTimeout: 5000 })
+test.use({ actionTimeout: 5000 });
 
+test('checkout', async ({ page }) => {
 	// navigate to our target web page
 	await page.goto('https://danube-web.shop/');
 
@@ -27,5 +27,4 @@ test('checkout', async ({ page }) => {
 
 	// wait until the order confirmation message is shown
 	await expect(page.getByText('All good, order is on the way. Thank you!!')).toBeVisible();
-
 });

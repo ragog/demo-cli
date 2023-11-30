@@ -1,7 +1,8 @@
 import { test, expect } from '@playwright/test';
 
+test.use({ actionTimeout: 5000 });
+
 test('initiate return', async ({ page }) => {
-	test.use({ actionTimeout: 5000 })
 	const bookList = ['The Foreigner', 'The Transformation', 'For Whom the Ball Tells', 'Baiting for Robot'];
 
 	// navigate to our target web page
@@ -9,9 +10,9 @@ test('initiate return', async ({ page }) => {
 
 	// search for keyword
 	await page.getByRole('textbox').fill('for');
-  	await page.getByRole('button', { name: 'Search' }).click();
+	await page.getByRole('button', { name: 'Search' }).click();
 
-	await page.waitForLoadState('networkidle')
+	await page.waitForLoadState('networkidle');
 
 	// halt immediately if results do not equal expected number
 	let resultsNumber = (await page.$$('.preview-title')).length;

@@ -1,8 +1,8 @@
 import { test, expect } from '@playwright/test';
 
-test('login', async ({ page }) => {
-	test.use({ actionTimeout: 5000 })
+test.use({ actionTimeout: 5000 });
 
+test('login', async ({ page }) => {
 	// navigate to our target web page
 	await page.goto('https://danube-web.shop/');
 
