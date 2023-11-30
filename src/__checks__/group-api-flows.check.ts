@@ -26,12 +26,12 @@ const group = new CheckGroup('group-store-api-flows', {
 })
 
 new MultiStepCheck('multistep-check-1', {
-  name: 'Multistep ',
+  name: 'user item flow',
   group,
   runtimeId: '2023.09',
   frequency: Frequency.EVERY_10M,
   locations: ['us-east-1', 'eu-west-1'],
   code: {
-    entrypoint: path.join(__dirname, 'multi.spec.ts')
+    entrypoint: path.join(__dirname, 'specs_api/multi.spec.ts')
   },
 })

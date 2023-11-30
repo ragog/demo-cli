@@ -1,6 +1,7 @@
 import { test, expect } from '@playwright/test';
 
-test('initiate return', async ({ page }) => {
+test('search', async ({ page }) => {
+	test.use({ actionTimeout: 5000 })	
 	const bookList = ['The Foreigner', 'The Transformation', 'For Whom the Ball Tells', 'Baiting for Robot'];
 
 	// navigate to our target web page
