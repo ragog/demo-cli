@@ -19,7 +19,7 @@ const group = new CheckGroup('group-store-api-flows', {
   runtimeId: '2023.09',
   locations: ['us-east-1', 'eu-west-1'],
   tags: ['mac', 'production'],
-  environmentVariables: [],
+  environmentVariables: [ { key: 'JSONMAP_API_KEY', value: `${process.env.JSONMAP_API_KEY}` } ],
   apiCheckDefaults: {},
   concurrency: 100,
   alertChannels
